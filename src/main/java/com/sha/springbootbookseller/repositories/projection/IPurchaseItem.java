@@ -2,7 +2,7 @@ package com.sha.springbootbookseller.repositories.projection;
 
 import java.time.LocalDateTime;
 
-public interface PurchaseItem {
+public interface IPurchaseItem {
 
     String getTitle();
     Double getPrice();
