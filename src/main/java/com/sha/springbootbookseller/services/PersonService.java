@@ -32,6 +32,7 @@ public class PersonService implements IPersonService{
         return personRepository.save(person);
     }
 
+    @Override
     public Optional<Person> findByUsername(String username){
         return personRepository.findByUsername(username);
     }
