@@ -5,7 +5,7 @@ import com.sha.springbootbookseller.repositories.projection.IPurchaseItem;
 
 import java.util.List;
 
-public interface IPurchaseHistory {
+public interface IPurchaseHistoryService {
     PurchaseHistory savePurchaseHistory(PurchaseHistory purchaseHistory);
 
     List<IPurchaseItem> findPurchasedItemsOfUser(Long personId);

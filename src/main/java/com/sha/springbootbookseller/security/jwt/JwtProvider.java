@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -33,11 +34,14 @@ public class JwtProvider implements IJwtProvider{
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
 
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.SECOND, (int) ( (System.currentTimeMillis() / 1000) + ( Integer.valueOf(JWT_EXPIRATION) / 1000) ));
+
         return Jwts.builder()
                 .setSubject(personPrincipal.getUsername())
                 .claim("roles", authorities)
                 .claim("userId", personPrincipal.getId())
-                .setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION))
+                .setExpiration(cal.getTime())
                 .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
                 .compact();
     }

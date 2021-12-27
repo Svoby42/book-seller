@@ -3,14 +3,13 @@ package com.sha.springbootbookseller.services;
 import com.sha.springbootbookseller.entities.PurchaseHistory;
 import com.sha.springbootbookseller.repositories.PurchaseHistoryRepository;
 import com.sha.springbootbookseller.repositories.projection.IPurchaseItem;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class PurchaseHistoryService implements IPurchaseHistory{
+public class PurchaseHistoryService implements IPurchaseHistoryService {
 
     private final PurchaseHistoryRepository purchaseHistoryRepository;
 
