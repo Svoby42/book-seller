@@ -35,7 +35,7 @@ public class JwtProvider implements IJwtProvider{
                 .collect(Collectors.joining(","));
 
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.SECOND, (int) ( (System.currentTimeMillis() / 1000) + ( Integer.valueOf(JWT_EXPIRATION) / 1000) ));
+        cal.set(Calendar.MILLISECOND, (int) ( (System.currentTimeMillis() / 1000) + ( Integer.valueOf(JWT_EXPIRATION) / 1000) ));
 
         return Jwts.builder()
                 .setSubject(personPrincipal.getUsername())
